@@ -7,7 +7,13 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [TodoEntity::class],
-    version = 2,
+    /** Gemini - início
+     * Prompt: O app rodou, exibiu lista vazia mesmo para um usuario que possuia tasks e
+     * crashou. Como resolver esse erro?
+     */
+    version = 2, // codigo gerado para recriar o banco automaticamente e evitar crash
+    /** Gemini - final */
+
 )
 abstract class TodoDatabase : RoomDatabase(){
 
@@ -26,7 +32,12 @@ object TodoDatabaseProvider {
                 TodoDatabase::class.java,
                 "todo-app"
             )
-                .fallbackToDestructiveMigration()
+                /** Gemini - início
+                 * Prompt: O app rodou, exibiu lista vazia mesmo para um usuario que possuia tasks e
+                 * crashou. Como resolver esse erro?
+                 */
+                .fallbackToDestructiveMigration() // Código gerado para recriar o banco automaticamente e evitar crash
+                /** Gemini - final */
                 .build()
             INSTANCE = instance
             instance

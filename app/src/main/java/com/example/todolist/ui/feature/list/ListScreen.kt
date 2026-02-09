@@ -9,13 +9,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.ExperimentalMaterial3Api
 
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -39,10 +37,8 @@ import com.example.todolist.domain.Todo
 import com.example.todolist.domain.todo1
 import com.example.todolist.domain.todo2
 import com.example.todolist.domain.todo3
-import com.example.todolist.navigation.AddEditRoute
 import com.example.todolist.ui.UiEvent
 import com.example.todolist.ui.components.TodoItem
-import com.example.todolist.ui.feature.addedit.AddEditViewModel
 import com.example.todolist.ui.feature.auth.AuthState
 import com.example.todolist.ui.feature.auth.AuthViewModel
 import com.example.todolist.ui.theme.TodoListTheme

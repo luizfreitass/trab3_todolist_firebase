@@ -2,8 +2,8 @@ package com.example.todolist.ui.feature.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.todolist.data.TodoRepository
-import com.example.todolist.navigation.AddEditRoute
+import com.example.todolist.domain.TodoRepository
+import com.example.todolist.ui.navigation.AddEditRoute
 import com.example.todolist.ui.UiEvent
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.channels.Channel

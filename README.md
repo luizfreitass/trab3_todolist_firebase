@@ -41,7 +41,7 @@ Este projeto foi desenvolvido como atividade avaliativa da disciplina de **Progr
 
 ---
 
-## 🚀 Evolução e Diferenciais (vs. Versão Anterior)
+## 🚀 Evolução e Diferenciais vs. Versão Anterior
 
 Este projeto representa uma evolução significativa em relação à versão anterior (*Simple To-Do List*), introduzindo maior complexidade arquitetural para suportar múltiplos usuários, segurança e boas práticas de desenvolvimento.
 
@@ -61,7 +61,7 @@ Integração completa com o Firebase Authentication, com telas de Login e Cadast
 O banco de dados local (Room) era compartilhado globalmente no dispositivo.
 
 **Versão atual:**  
-Implementação de *multi-tenancy lógico*:
+Implementação de *multi-tenancy lógico* (suporte a multiplos usuarios):
 - A entidade `TodoEntity` recebeu o campo `userId`
 - Todas as consultas do DAO filtram os dados pelo usuário logado (`WHERE userId = :id`)
 - O repositório injeta automaticamente o ID do usuário autenticado nas operações
@@ -83,7 +83,7 @@ Implementação de *multi-tenancy lógico*:
 
 ---
 
-## 🛠️ Tech Stack & Bibliotecas
+## 🛠️ Tecnologias & Bibliotecas
 
 - **Linguagem:** Kotlin  
 - **UI Toolkit:** Jetpack Compose (Material Design 3)  
@@ -124,7 +124,7 @@ ui/
 
 ---
 
-### 💾 Camada de Dados (Data Layer)
+### 💾 Camada de Dados
 
 - **Room Database:**  
   Configurado com `.fallbackToDestructiveMigration()` durante a fase de desenvolvimento acadêmico, permitindo a evolução rápida do schema (como a adição do campo `userId`) sem causar falhas na execução.  
@@ -179,9 +179,9 @@ ui/
 
 ## ✒️ Autores
 
-Luiz Alexandre  
+Luiz Alexandre Anchieta Freitas 
 Matrícula: 12211GIN008  
 
 Enzo Santos Tavares
-Matrícula:
+Matrícula: 12321BSI288
 

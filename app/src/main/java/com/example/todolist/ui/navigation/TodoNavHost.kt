@@ -1,4 +1,4 @@
-package com.example.todolist.navigation
+package com.example.todolist.ui.navigation
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -7,9 +7,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.example.todolist.pages.HomePage
-import com.example.todolist.pages.LoginPage
-import com.example.todolist.pages.SignupPage
+import com.example.todolist.ui.feature.auth.LoginPage
+import com.example.todolist.ui.feature.auth.SignupPage
 import com.example.todolist.ui.feature.addedit.AddEditScreen
 import com.example.todolist.ui.feature.auth.AuthViewModel
 import com.example.todolist.ui.feature.list.ListScreen

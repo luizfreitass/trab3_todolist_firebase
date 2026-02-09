@@ -1,4 +1,4 @@
-package com.example.todolist.pages
+package com.example.todolist.ui.feature.auth
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
@@ -23,12 +23,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.todolist.navigation.ListRoute
-import com.example.todolist.ui.feature.auth.AuthState
-import com.example.todolist.ui.feature.auth.AuthViewModel
+import com.example.todolist.ui.navigation.ListRoute
 
 @Composable
-fun LoginPage(
+fun SignupPage(
     modifier: Modifier = Modifier,
     navController: NavHostController,
     authViewModel: AuthViewModel
@@ -37,16 +35,27 @@ fun LoginPage(
         mutableStateOf("")
     }
 
-    var password by remember{
+    var password by remember {
         mutableStateOf("")
+
     }
 
     val authState = authViewModel.authState.observeAsState()
     val context = LocalContext.current
 
+
     LaunchedEffect(authState.value) {
         when(authState.value) {
-            is AuthState.Authenticated -> navController.navigate(ListRoute){popUpTo("login") { inclusive = true }}
+            /** Gemini - início
+             * Prompt: Ao logar e pressionar o botão "Voltar", o app retorna para a tela de Login. Como impedir isso e fechar o app ao invés de voltar?
+             * Solução: Utilizar .popUpTo("login") { inclusive = true } para remover a tela de login da pilha de navegação (BackStack) antes de ir para a lista.
+             */
+            is AuthState.Authenticated -> navController.navigate(ListRoute){
+                popUpTo("login") {
+                    inclusive = true
+                }
+            }
+            /** Gemini - final */
             is AuthState.Error -> Toast.makeText(context, (authState.value as AuthState.Error).message, Toast.LENGTH_SHORT).show()
             else -> Unit
         }
@@ -58,34 +67,34 @@ fun LoginPage(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Login Page", fontSize = 32.sp)
+        Text(text = "Cadastre-se", fontSize = 32.sp)
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        OutlinedTextField(value = email, onValueChange = {email = it}, label = {Text("Email")})
+        OutlinedTextField(value = email, onValueChange = {email = it}, label = {Text("E-mail")})
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        OutlinedTextField(value = password, onValueChange = {password = it}, label = {Text("Password")})
+        OutlinedTextField(value = password, onValueChange = {password = it}, label = {Text("Senha")})
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(onClick = {
-            authViewModel.login(email, password)
+            authViewModel.signup(email, password)
+
         },
             enabled = authState.value != AuthState.Loading
-        ) {
-            Text(text = "Login")
+            ) {
+            Text(text = "Criar conta")
 
         }
 
         Spacer(modifier = Modifier.height(8.dp))
 
         TextButton(onClick = {
-            navController.navigate("signup")
+            navController.navigate("login")
         }) {
-            Text(text = "Don't have an account? Signup")
+            Text(text = "Já tem conta? Entrar")
         }
     }
-
 }
